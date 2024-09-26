@@ -3,10 +3,16 @@
     "newborn": "kit",
     "kitten": "kit",
     "apprentice": "paw",
+    "scout apprentice": "",
     "medicine cat apprentice": "paw",
-    "mediator apprentice": "paw",
-    "leader": "star"
+    "mediator apprentice": "paw"
     },
+  "scout" : [
+    "run", "runner", "climb", "swim", "reach", "wind", "skies", "stalk", "sneak", "whisper", "kick", "leap", "jump", "watcher", "swipe"
+  ],
+  "leader" : [
+    "star", "rain", "flood", "sky", "skies", "soar", "cloud", "pour"
+  ],
   "normal_suffixes" : [
     "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur", "fur",
     "tuft", "tuft", "tuft", "tuft", "tuft", "tooth", "tooth", "tooth", "tooth", "tooth",

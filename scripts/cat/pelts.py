@@ -55,13 +55,21 @@ class Pelt:
                    'classic', 'sokoke', 'agouti', 'singlestripe', 'masked']
 
     pelt_length = ["short", "medium", "long"]
-    eye_colours = ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 'DARKBLUE', 'GREY', 'CYAN', 'EMERALD',
-                   'PALEBLUE',
-                   'PALEYELLOW', 'GOLD', 'HEATHERBLUE', 'COPPER', 'SAGE', 'COBALT', 'SUNLITICE', 'GREENYELLOW',
-                   'BRONZE', 'SILVER']
-    yellow_eyes = ['YELLOW', 'AMBER', 'PALEYELLOW', 'GOLD', 'COPPER', 'GREENYELLOW', 'BRONZE', 'SILVER']
-    blue_eyes = ['BLUE', 'DARKBLUE', 'CYAN', 'PALEBLUE', 'HEATHERBLUE', 'COBALT', 'SUNLITICE', 'GREY']
-    green_eyes = ['PALEGREEN', 'GREEN', 'EMERALD', 'SAGE', 'HAZEL']
+    eye_colours = ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 'DARKBLUE', 'GREY', 'CYAN', 'EMERALD', 'PALEBLUE', 
+        'PALEYELLOW', 'GOLD', 'HEATHERBLUE', 'COPPER', 'SAGE', 'COBALT', 'SUNLITICE', 'GREENYELLOW', 'BRONZE', 'SILVER', 'ROSE',
+        'ALGAE', 'SEAFOAM', 'LIGHT FLAME', 'CLOUDY', 'RED', 'TURQUOISE', 'SWAMP', 'RAINY', 'AQUAMARINE', 'EARTH', 'PUMPKIN', 'LILAC',
+        'PERIWINKLE', 'VIOLET', 'POND', 'DIRT', 'BROWN', 'CEDAR', 'CHRISTMAS', 'COTTON CANDY', 'DARK PINE', 'FALL', 'FOREST FIRE',
+        'GOLD MOON', 'HALLOWEEN', 'LOBELIA', 'MIDNIGHT', 'MOONSTONE', 'OXIDIZED', 'SNOW', 'BERRY BANANA', 'DAWN SKY', 'TWILIGHT SKY',
+        'WORMY', 'BLUE HAZEL', 'THUNDERBOLT', 'VOLCANO', 'SEASHELL', 'PARADOX', 'CURSE', 'BLESSING', 'FOXGLOVE', 'OLIVE', 'EASTER',
+        'VALENTINE', 'FIREWORK', 'LUCKY', 'LIME', 'PALE BROWN', 'CRIMSON']
+    yellow_eyes = ['YELLOW', 'AMBER', 'PALEYELLOW', 'GOLD', 'COPPER', 'GREENYELLOW', 'BRONZE', 'SILVER', 'ROSE', 'LIGHT FLAME', 'RED',
+                   'PUMPKIN', 'BROWN', 'CEDAR', 'DARK PINE', 'FALL', 'GOLD MOON', 'OXIDIZED', 'BERRY BANANA', 'WORMY', 'THUNDERBOLT',
+                   'VOLCANO', 'SEASHELL', 'PARADOX', 'BLESSING', 'EASTER', 'VALENTINE', 'PALE BROWN', 'CRIMSON']
+    blue_eyes = ['BLUE', 'DARKBLUE', 'CYAN', 'PALEBLUE', 'HEATHERBLUE', 'COBALT', 'SUNLITICE', 'GREY', 'SEAFOAM', 'CLOUDY', 'TURQUOISE',
+                 'RAINY', 'LILAC', 'PERIWINKLE', 'VIOLET', 'POND', 'COTTON CANDY', 'HALLOWEEN', 'LOBELIA', 'MIDNIGHT', 'MOONSTONE', 'SNOW',
+                 'DAWN SKY', 'TWILIGHT SKY', 'BLUE HAZEL', 'CURSE', 'FIREWORK']
+    green_eyes = ['PALEGREEN', 'GREEN', 'EMERALD', 'SAGE', 'HAZEL', 'ALGAE', 'SWAMP', 'AQUAMARINE', 'EARTH', 'DIRT', 'CHRISTMAS', 'FOREST FIRE',
+                  'LIME', 'OLIVE', 'LUCKY']
 
     # bite scars by @wood pank on discord
 
@@ -79,15 +87,12 @@ class Pelt:
               "FROSTMITT", "FROSTSOCK", "TOE", "SNAKETWO"]
 
     # make sure to add plural and singular forms of new accs to acc_display.json so that they will display nicely
-    plant_accessories = ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "CATTAIL", "POPPY", "ORANGE POPPY", "CYAN POPPY", "WHITE POPPY", "PINK POPPY",
-                        "BLUEBELLS", "LILY OF THE VALLEY", "SNAPDRAGON", "HERBS", "PETALS", "NETTLE", "HEATHER", "GORSE", "JUNIPER", "RASPBERRY", "LAVENDER",
-                        "OAK LEAVES", "CATMINT", "MAPLE SEED", "LAUREL", "BULB WHITE", "BULB YELLOW", "BULB ORANGE", "BULB PINK", "BULB BLUE", "CLOVER", "DAISY",
-                        "CLOVER", "DAISY", "LILY OF THE VALLEY", "HEATHER", "SNAPDRAGON", "GORSE", "BULB WHITE", "BULB YELLOW",
-                        "DRY HERBS", "DRY CATMINT", "DRY NETTLES", "DRY LAURELS"
-                        ]
-    wild_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "GULL FEATHERS", "SPARROW FEATHERS", "MOTH WINGS", "ROSY MOTH WINGS", "MORPHO BUTTERFLY", "MONARCH BUTTERFLY", "CICADA WINGS", "BLACK CICADA"]
-  
-    tail_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "GULL FEATHERS", "SPARROW FEATHERS", "CLOVER", "DAISY"]
+    plant_accessories = ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "LAUREL",
+                         "BLUEBELLS", "NETTLE", "POPPY", "LAVENDER", "HERBS", "PETALS", "DRY HERBS",
+                         "OAK LEAVES", "CATMINT", "MAPLE SEED", "JUNIPER"]
+
+    wild_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "MOTH WINGS", "CICADA WINGS"]
+    tail_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS"]
     collars = [
         "CRIMSON", "BLUE", "YELLOW", "CYAN", "RED", "LIME", "GREEN", "RAINBOW",
         "BLACK", "SPIKES", "WHITE", "PINK", "PURPLE", "MULTI", "INDIGO", "CRIMSONBELL", "BLUEBELL",
@@ -786,8 +791,8 @@ class Pelt:
             chance = 10 - len(par_points)
         else:
             chance = 40
-        # Chance of point is 1 / chance.
-        if self.name != "Tortie" and not int(random.random() * chance):
+
+        if self.name != "Tortie" and not (random.random() * chance):
             self.points = choice(Pelt.point_markings)
         else:
             self.points = None

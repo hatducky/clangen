@@ -135,7 +135,7 @@ class Patrol:
         for cat in patrol_cats:
             self.patrol_cats.append(cat)
 
-            if cat.status == "apprentice" or cat.status == "medicine cat apprentice":
+            if cat.status in ("apprentice", "scout apprentice", "medicine cat apprentice"):
                 self.patrol_apprentices.append(cat)
 
             self.patrol_status_list.append(cat.status)
@@ -152,13 +152,13 @@ class Patrol:
                 else:
                     self.patrol_statuses["healer cats"] = 1
 
-            if cat.status in ("apprentice", "medicine cat apprentice"):
+            if cat.status in ("apprentice", "scout apprentice", "medicine cat apprentice"):
                 if "all apprentices" in self.patrol_statuses:
                     self.patrol_statuses["all apprentices"] += 1
                 else:
                     self.patrol_statuses["all apprentices"] = 1
 
-            if cat.status in ("warrior", "deputy", "leader"):
+            if cat.status in ("warrior", "scout", "deputy", "leader"):
                 if "normal adult" in self.patrol_statuses:
                     self.patrol_statuses["normal adult"] += 1
                 else:
@@ -188,6 +188,16 @@ class Patrol:
         elif "deputy" in self.patrol_status_list:
             index = self.patrol_status_list.index("deputy")
             self.patrol_leader = self.patrol_cats[index]
+        # if there is no leader/deputy, a scout or their apprentice will be patrol leader
+        elif "scout" in self.patrol_status_list:
+            index = self.patrol_status_list.index("scout")
+            self.patrol_leader = self.patrol_cats[index]
+        elif "scout apprentice" in self.patrol_status_list:
+            index = self.patrol_status_list.index("scout apprentice")
+            self.patrol_leader = self.patrol_cats[index]
+            # set scout app as app1
+            self.patrol_apprentices.remove(self.patrol_leader)
+            self.patrol_apprentices = [self.patrol_leader] + self.patrol_apprentices
         else:
             # Get the oldest cat
             possible_leader = [

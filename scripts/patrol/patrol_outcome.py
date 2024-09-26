@@ -412,7 +412,7 @@ class PatrolOutcome:
 
         if gained_exp or app_exp:
             for cat in patrol.patrol_cats:
-                if cat.status in ["apprentice", "medicine cat apprentice"]:
+                if cat.status in ["apprentice", "scout apprentice", "medicine cat apprentice"]:
                     cat.experience = cat.experience + app_exp
                 else:
                     cat.experience = cat.experience + gained_exp

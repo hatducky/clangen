@@ -88,6 +88,8 @@ class Events:
                 "warrior",
                 "medicine cat",
                 "medicine cat apprentice",
+                "scout",
+                "scout apprentice",
                 "apprentice",
                 "mediator",
                 "mediator apprentice",
@@ -1002,6 +1004,7 @@ class Events:
             x = Cat.fetch_cat(cat_ID)
             if x.status in [
                 "apprentice",
+                "scout apprentice",
                 "medicine cat apprentice",
                 "mediator apprentice",
                 "kitten",
@@ -1012,6 +1015,8 @@ class Events:
                         self.ceremony(x, "medicine cat")
                     elif x.status == "mediator apprentice":
                         self.ceremony(x, "mediator")
+                    elif x.status == "scout apprentice":
+                        self.ceremony(x, "scout")
                     else:
                         self.ceremony(x, "warrior")
                 elif (
@@ -1643,6 +1648,7 @@ class Events:
             "medicine cat": ["medicine cat"],
             "warrior": ["warrior", "deputy", "leader", "elder"],
             "mediator": ["mediator"],
+            "scout": ["scout"]
         }
 
         try:
@@ -1650,7 +1656,7 @@ class Events:
             possible_ceremonies.update(self.ceremony_id_by_tag[promoted_to])
 
             # Get ones for prepared status ----------------------------------------------
-            if promoted_to in ["warrior", "medicine cat", "mediator"]:
+            if promoted_to in ["warrior", "scout", "medicine cat", "mediator"]:
                 possible_ceremonies = possible_ceremonies.intersection(
                     self.ceremony_id_by_tag[preparedness]
                 )
@@ -1807,7 +1813,7 @@ class Events:
 
         # getting the random honor if it's needed
         random_honor = None
-        if promoted_to in ["warrior", "mediator", "medicine cat"]:
+        if promoted_to in ["warrior", "scout", "mediator", "medicine cat"]:
             resource_dir = "resources/dicts/events/ceremonies/"
             with open(
                 f"{resource_dir}ceremony_traits.json", encoding="ascii"
@@ -1818,7 +1824,7 @@ class Events:
             except KeyError:
                 random_honor = "hard work"
 
-        if cat.status in ["warrior", "medicine cat", "mediator"]:
+        if cat.status in ["warrior", "scout", "medicine cat", "mediator"]:
             History.add_app_ceremony(cat, random_honor)
 
         ceremony_tags, ceremony_text = self.CEREMONY_TXT[

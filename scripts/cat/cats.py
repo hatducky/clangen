@@ -74,6 +74,8 @@ class Cat:
         "elder",
         "apprentice",
         "warrior",
+        "scout apprentice",
+        "scout",
         "mediator apprentice",
         "mediator",
         "medicine cat apprentice",
@@ -869,10 +871,26 @@ class Cat:
         if self.status == "apprentice":
             pass
 
+        if self.status == "scout apprentice":
+            pass
+
         elif self.status == "medicine cat apprentice":
             pass
 
         elif self.status == "warrior":
+            if old_status == "leader":
+                if game.clan.leader:
+                    if game.clan.leader.ID == self.ID:
+                        game.clan.leader = None
+                        game.clan.leader_predecessors += 1
+
+                    # don't remove the check for game.clan, this is needed for tests
+            if game.clan and game.clan.deputy:
+                if game.clan.deputy.ID == self.ID:
+                    game.clan.deputy = None
+                    game.clan.deputy_predecessors += 1
+
+        elif self.status == "scout":
             if old_status == "leader":
                 if game.clan.leader:
                     if game.clan.leader.ID == self.ID:
@@ -917,7 +935,7 @@ class Cat:
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""
 
-        if self.status in ["warrior", "medicine cat", "mediator"]:
+        if self.status in ["warrior", "scout", "medicine cat", "mediator"]:
             # Give a couple doses of mentor influence:
             if mentor:
                 max_influence = randint(0, 2)
@@ -2282,11 +2300,15 @@ class Cat:
             and potential_mentor.status != "medicine cat"
         ):
             return False
-        if self.status == "apprentice" and potential_mentor.status not in [
-            "leader",
-            "deputy",
-            "warrior",
-        ]:
+        if (
+            self.status == "apprentice" 
+            and potential_mentor.status !="warrior",
+        ):
+            return False
+        if (
+            self.status == "scout apprentice" 
+            and potential_mentor.status !="scout",
+        ):
             return False
         if (
             self.status == "mediator apprentice"

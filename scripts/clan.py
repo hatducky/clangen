@@ -45,7 +45,9 @@ class Clan:
         "newborn",
         "kitten",
         "apprentice",
+        "scout apprentice",
         "warrior",
+        "scout",
         "medicine",
         "deputy",
         "leader",
@@ -206,9 +208,11 @@ class Clan:
             status=choice(
                 [
                     "apprentice",
+                    "scout apprentice",
                     "mediator apprentice",
                     "medicine cat apprentice",
                     "warrior",
+                    "scout",
                     "medicine cat",
                     "leader",
                     "mediator",

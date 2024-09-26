@@ -625,7 +625,7 @@ class ChooseMentorScreen(Screens):
 
     def get_valid_mentors(self):
         
-        potential_warrior_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status in ['warrior', 'deputy', 'leader']]
+        potential_warrior_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'warrior']
         valid_warrior_mentors = []
         invalid_warrior_mentors = []
         potential_medcat_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'medicine cat']
@@ -634,6 +634,9 @@ class ChooseMentorScreen(Screens):
         potential_mediator_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'mediator']
         valid_mediator_mentors = []
         invalid_mediator_mentors = []
+        potential_scout_mentors = [cat for cat in Cat.all_cats_list if not (cat.dead or cat.outside) and cat.status == 'scout']
+        valid_scout_mentors = []
+        invalid_scout_mentors = []
 
         if self.the_cat.status == "apprentice":
             for cat in potential_warrior_mentors:
@@ -695,6 +698,24 @@ class ChooseMentorScreen(Screens):
                     valid_mediator_mentors.append(cat)
 
             return potential_mediator_mentors
+        elif self.the_cat.status == "scout apprentice":
+            for cat in potential_scout_mentors:
+                # Assume cat is valid initially
+                is_valid = True
+
+                # Check for no former apprentices filter
+                if self.show_only_no_former_app_mentors and cat.former_apprentices:
+                    is_valid = False
+
+                # Check for no current apprentices filter
+                if self.show_only_no_current_app_mentors and cat.apprentice:
+                    is_valid = False
+
+                # Add to valid or invalid list based on checks
+                if is_valid:
+                    valid_mediator_mentors.append(cat)
+
+            return potential_scout_mentors
         return []
 
     def on_use(self):

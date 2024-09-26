@@ -1432,6 +1432,7 @@ class ProfileScreen(Screens):
             influence_history = "This cat has not begun training."
         elif self.the_cat.status in [
             "apprentice",
+            "scout apprentice",
             "medicine cat apprentice",
             "mediator apprentice",
         ]:
@@ -2181,7 +2182,7 @@ class ProfileScreen(Screens):
                 self.manage_roles.enable()
             if (
                 self.the_cat.status
-                not in ["apprentice", "medicine cat apprentice", "mediator apprentice"]
+                not in ["apprentice",  "scout apprentice", "medicine cat apprentice", "mediator apprentice"]
                 or self.the_cat.dead
                 or self.the_cat.outside
             ):

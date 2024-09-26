@@ -216,6 +216,7 @@
 	"roles": {
 		"mediator_app_chance": 50,
 		"base_medicine_app_chance": 41,
+		"scout_app_chance": 50,
 		"become_mediator_chances": {
 			"warrior": 5000,
 			"elder": 400
@@ -298,7 +299,8 @@
 		"max_apprentice_age": {
 			"medicine cat apprentice": 30,
 			"apprentice": 25,
-			"mediator apprentice": 25
+			"mediator apprentice": 25,
+			"scout apprentice": 35
 		},
 		"min_graduating_age": 10
 	},
@@ -311,7 +313,9 @@
         "duration": 3,
         "hunting":{
             "warrior": 2,
+			"scout": 1,
             "apprentice": 1,
+			"scout apprentice": 1,
             "comment": "Defines how much a working warrior(leader/deputy) or apprentice gathers additionally."
         },
         "herb gathering" : {
@@ -329,6 +333,7 @@
         },
         "raid other clans" : {
             "prey_warrior": 3,
+			"prey_scout": 3,
             "herb_medicine": 4,
             "injury_chance_warrior": 18,
             "injury_chance_medicine cat": 33,
@@ -358,6 +363,7 @@
         },
         "hoarding" : {
             "prey_warrior": 1,
+			"prey_scout": 1,
             "herb_medicine": 2,
             "injury_chance_warrior": 25,
             "injury_chance_medicine cat": 35,

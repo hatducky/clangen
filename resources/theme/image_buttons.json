@@ -2906,6 +2906,23 @@
             }
         }
     },
+    "#switch_scout_app_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/switch_scout_app.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/switch_scout_app_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/switch_scout_app_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/switch_scout_app_unavailable.png"
+            }
+        }
+    },
     "#switch_warrior_app_button": {
         "prototype": "#image_button",
         "images": {
@@ -2937,6 +2954,23 @@
             },
             "disabled_image": {
                 "path": "resources/images/buttons/switch_med_cat_unavailable.png"
+            }
+        }
+    },
+    "#switch_scout_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/switch_scout.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/switch_scout_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/switch_scout_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/switch_scout_unavailable.png"
             }
         }
     },
