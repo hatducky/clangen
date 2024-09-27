@@ -70,6 +70,9 @@ class RoleScreen(Screens):
             elif event.ui_element == self.switch_warrior_app:
                 self.the_cat.status_change("apprentice", resort=True)
                 self.update_selected_cat()
+            elif event.ui_element == self.switch_scout_app:
+                self.the_cat.status_change("scout apprentice", resort=True)
+                self.update_selected_cat()
             elif event.ui_element == self.switch_med_app:
                 self.the_cat.status_change("medicine cat apprentice", resort=True)
                 self.update_selected_cat()
@@ -132,7 +135,7 @@ class RoleScreen(Screens):
         self.switch_warrior = UIImageButton(scale(pygame.Rect((451, 720), (344, 72))), "",
                                             object_id="#switch_warrior_button",
                                             manager=MANAGER)
-        self.switch_warrior = UIImageButton(scale(pygame.Rect((805, 896), (344, 72))), "",
+        self.switch_scout = UIImageButton(scale(pygame.Rect((805, 896), (344, 72))), "",
                                             object_id="#switch_scout_button",
                                             manager=MANAGER)
         self.retire = UIImageButton(scale(pygame.Rect((451, 792), (344, 72))), "",
@@ -154,6 +157,9 @@ class RoleScreen(Screens):
                                             manager=MANAGER)
         self.switch_mediator_app = UIImageButton(scale(pygame.Rect((1159, 928), (344, 104))), "",
                                                  object_id="#switch_mediator_app_button",
+                                                 manager=MANAGER)
+        self.switch_scout_app = UIImageButton(scale(pygame.Rect((1159, 1032), (344, 104))), "",
+                                                 object_id="#switch_scout_app_button",
                                                  manager=MANAGER)
 
         self.update_selected_cat()
@@ -227,7 +233,7 @@ class RoleScreen(Screens):
             "mediator apprentice": "mediator_app_icon.png",
             "scout": "scout_icon.png",
             "warrior": "warrior_icon.png",
-            "scout apprentice": "scout_apprentice.png",
+            "scout apprentice": "scout_app_icon.png",
             "apprentice": "warrior_app_icon.png",
             "kitten": "kit_icon.png",
             "newborn": "kit_icon.png",
@@ -369,7 +375,7 @@ class RoleScreen(Screens):
             self.switch_warrior_app.disable()
             self.switch_mediator_app.disable()
             self.switch_scout_app.disable()
-            self.switch_scout_app.disable()
+
         elif self.the_cat.status == "mediator":
             if leader_invalid:
                 self.promote_leader.enable()
@@ -414,6 +420,23 @@ class RoleScreen(Screens):
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
             self.switch_mediator_app.disable()
+            self.switch_scout_app.disable()
+
+        elif self.the_cat.status == "scout apprentice":
+            self.promote_leader.disable()
+            self.promote_deputy.disable()
+
+            # ADULT CAT ROLES
+            self.switch_warrior.disable()
+            self.switch_med_cat.disable()
+            self.switch_mediator.disable()
+            self.switch_scout.disable()
+            self.retire.disable()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.enable()
+            self.switch_warrior_app.enable()
+            self.switch_mediator_app.enable()
             self.switch_scout_app.disable()
         elif self.the_cat.status == "medicine cat apprentice":
             self.promote_leader.disable()
@@ -477,6 +500,7 @@ class RoleScreen(Screens):
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
             self.switch_mediator_app.disable()
+            self.switch_scout_app.disable()
 
     def get_role_blurb(self):
         if self.the_cat.status == "warrior":
@@ -636,6 +660,8 @@ class RoleScreen(Screens):
         del self.switch_warrior_app
         self.switch_mediator_app.kill()
         del self.switch_mediator_app
+        self.switch_scout_app.kill()
+        del self.switch_scout_app
         self.blurb_background.kill()
         del self.blurb_background
 
